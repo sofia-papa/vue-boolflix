@@ -3,7 +3,7 @@
           <div>
                 <img src="../assets/boolflix.png" alt="">
           </div>
-          <div>
+          <div class="search_bar">
               <input type="text" placeholder="digita il nome del film" v-model.trim= "search"
                @keyup= "$emit('searchInMovies', search)">
                <button class="btn btn-primary" type="submit">Cerca</button>
@@ -29,6 +29,10 @@ export default {
 
 input{
     flex-grow: 2;
+}
+
+.search_bar{
+    margin: 30px 600px;
 }
 
 </style>
