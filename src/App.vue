@@ -1,18 +1,52 @@
 <template>
   <div id="app">
-    <SearchBar />
+    <Search @search= "searchInMovies" />
+    <Main :movies= "films"/>
   </div>
 </template>
 
 <script>
-import SearchBar from './components/Searchbar.vue'
+import Search from './components/Search.vue';
+import Main from './components/Main.vue';
+import axios from "axios";
 
 export default {
   name: 'App',
   components: {
-   SearchBar,
-  }
+   Search,
+   Main
+  },
+   data: function(){
+    return{
+      apiUrl: "https://api.themoviedb.org/3/search/movie",
+      apiKey: "3640ad97ed2ac5bae387b7477da6d53f",
+      films: [],
+    }
+   },
+
+  methods: {
+    searchInMovies: function (search){
+      axios.get(this.apiUrl, {
+        params: {
+          api_key : this.apiKey,
+          query : search,
+          language: 'it-IT'
+        },
+      }).then(
+        (risposta) => {
+          this.films = [...risposta.data.results];
+          console.log(this.films);
+        }).catch(
+          (errore) =>{
+            console.warn("errore", errore);
+          }
+      )
+    }
+    
+  },
 }
+  
+   
 </script>
 
 <style lang="scss">
