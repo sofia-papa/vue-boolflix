@@ -4,9 +4,9 @@
                 <img src="../assets/boolflix.png" alt="">
           </div>
           <div>
-              <input type="text" placeholder="digita il nome del film" v-model.trim= "search">
-               <button class="btn btn-primary" type="submit" 
-              @click= "$emit('searchInMovies', search)">Cerca</button>
+              <input type="text" placeholder="digita il nome del film" v-model.trim= "search"
+               @keyup= "$emit('searchInMovies', search)">
+               <button class="btn btn-primary" type="submit">Cerca</button>
           </div>
       </form>
   
@@ -18,12 +18,8 @@ export default {
     name: "Search",
     data: function(){
        return{
-           movies: [],
            search: "",
        }
-    },
-    methods: {
-       
     },
 }
 </script>

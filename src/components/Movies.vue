@@ -1,9 +1,8 @@
 <template>
-  <div>
+  <div class="col-3  p-3 mb-3">
       <h1>{{movie.title}}</h1>
       <h2>{{movie.original_title}}</h2>
       <h2>{{movie.original_language}}</h2>
-      <p>{{movie.vote_avarage}}</p>
   </div>
 </template>
 

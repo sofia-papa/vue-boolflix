@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Search @search= "searchInMovies" />
+    <Search @searchInMovies= "searchInMovies" />
     <Main :movies= "films"/>
   </div>
 </template>
@@ -25,11 +25,11 @@ export default {
    },
 
   methods: {
-    searchInMovies: function (search){
+    searchInMovies: function (searching){
       axios.get(this.apiUrl, {
         params: {
           api_key : this.apiKey,
-          query : search,
+          query : searching,
           language: 'it-IT'
         },
       }).then(
