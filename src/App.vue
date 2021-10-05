@@ -10,6 +10,7 @@ import Search from './components/Search.vue';
 import Main from './components/Main.vue';
 import axios from "axios";
 
+
 export default {
   name: 'App',
   components: {
@@ -69,6 +70,5 @@ export default {
 
 <style lang="scss">
 @import './style/variables.scss';
-
-  
+@import '~@fortawesome/fontawesome-free/css/all.css';
 </style>

@@ -5,6 +5,10 @@
       <h2>{{movie.title ? movie.title : movie.name}}</h2>
       <h2>{{movie.original_title}}</h2>
       <p>{{movie.vote_average}}</p>
+      <i class="fas fa-star" v-for= "star in stars(movie.vote_average)" 
+      :key= "'stars' + star "></i>
+      <i class="far fa-star" v-for= "star in 5 - stars(movie.vote_average)" 
+      :key= "'stars' + star "></i>
 
       <div>
             <img class="img-flag" v-if= "movie.original_language == 'it'" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/1200px-Flag_of_Italy.svg.png" alt="">
@@ -22,7 +26,13 @@ export default {
        return{
            imgMovie: 'https://image.tmdb.org/t/p/w342',
        }
+   },
+   methods: {
+       stars (vote) {
+          return Math.ceil(vote/ 2);
+       }
    }
+
 }
 </script>
 
