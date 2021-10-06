@@ -1,6 +1,6 @@
 <template>
-      <form class="d-flex" v-on:submit.prevent>
-          <div>
+      <form class="d-flex color-bg" v-on:submit.prevent>
+          <div class=""> 
                 <img src="../assets/boolflix.png" alt="">
           </div>
           <div class="search_bar">
@@ -27,6 +27,9 @@ export default {
 <style scoped lang="scss">
 @import '../style/variables.scss';
 
+.color-bg{
+    background-color: black;
+}
 input{
     flex-grow: 2;
 }
